@@ -24,3 +24,5 @@ avm_lcd-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+/*.avm
