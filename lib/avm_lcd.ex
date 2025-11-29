@@ -19,7 +19,7 @@ defmodule AvmLcd do
   @reg_output 0x08
 
   def start do
-    Process.sleep(3000)
+    Process.sleep(1000)
     IO.inspect("YMN test")
 
     # # --- 修正箇所: XIAO ESP32S3 のピン番号 (SDA=5, SCL=6) ---
@@ -32,7 +32,7 @@ defmodule AvmLcd do
     init_rgb(i2c)
     IO.inspect("OK2-1")
 
-    set_rgb(i2c, 255, 255, 255)
+    set_rgb(i2c, 100, 100, 200)
 
     # 文字を表示
     print(i2c, "YMN Test")
@@ -52,14 +52,14 @@ defmodule AvmLcd do
     Process.sleep(1)
 
     # 3. Display Clear (0x01)
-    send_cmd(i2c, 0x01)
+    #send_cmd(i2c, 0x01)
     # Wait for more than 1.53ms (2msで十分)
-    Process.sleep(2)
+    #Process.sleep(2)
 
     # 4. Entry Mode Set (0x06: I/D=1, S=0)
-    send_cmd(i2c, 0x06)
+    #send_cmd(i2c, 0x06)
     # 念のため
-    Process.sleep(1)
+    #Process.sleep(1)
   end
 
   # 代替案: パターンマッチングで1バイトずつ取り出す
